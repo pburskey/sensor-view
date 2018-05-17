@@ -9,6 +9,7 @@ class SensorGraph extends Component {
         super(props);
         this.state =
         {
+            limit: props.limit,
             payloads: []
                     };
 
@@ -33,7 +34,9 @@ class SensorGraph extends Component {
     getLatestData(event)
     {
         const me = this;
-        var url = "http://burskey.com:8080/sensor/events/last?limit=5";
+        // var url = "http://eskimo:8080/sensor/events/last?limit=" + me.state.limit;
+        var url = "http://burskey.com:8080/sensor/events/last?limit=" + me.state.limit;
+        // var url = "http://burskey.com:8080/sensor/events/last?limit=1";
         var request = new Request(url, {
             method: 'GET' ,
             headers: {

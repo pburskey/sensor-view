@@ -9,5 +9,6 @@ import registerServiceWorker from './registerServiceWorker';
 registerServiceWorker();
 
 
-var sensorGraphInstance = ReactDOM.render(<SensorGraph />, document.getElementById('sensorGraph'));
+var sensorGraphHistoryInstance = ReactDOM.render(<SensorGraph limit={1}/>, document.getElementById('sensorGraph_history'));
+var sensorGraphCurrerntInstance = ReactDOM.render(<SensorGraph limit={5}/>, document.getElementById('sensorGraph_current'));
 
