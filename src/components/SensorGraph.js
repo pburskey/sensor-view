@@ -9,13 +9,21 @@ class SensorGraph extends Component {
         super(props);
         this.state =
         {
+            description: '',
             limit: props.limit,
             payloads: []
                     };
 
         this.state.getLatestData = this.getLatestData.bind(this);
 
-
+        if (this.state.limit > 1)
+        {
+            this.state.description = 'Historical';
+        }
+        else
+        {
+            this.state.description = 'Current';
+        }
 
 
     }
@@ -89,9 +97,10 @@ class SensorGraph extends Component {
     render() {
 
         return (
-            <div >
+                <fieldset >
+                    <legend>Measurements: {this.state.description}</legend>
                 <SimpleLineChart payloads={this.state.payloads}/>
-        </div>
+                </fieldset>
     );
     }
 }
